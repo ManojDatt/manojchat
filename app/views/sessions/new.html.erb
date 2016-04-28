@@ -1,0 +1,10 @@
+<h1>Login</h1>
+
+<%= form_for :user ,:url=> sessions_path  do |f|%>
+<table class="table table-hover"><tr><td>
+ User Type:</td><td> <%= f.select :user_type,["Event_manager","audience"] %></td></tr><br>
+<td>  Email:</td><td> <%= f.text_field :email %></td><td><br>
+  Password: </td><td><%= f.password_field :password %></td><td>
+  <%= f.submit "Submit" %></td></tr></table>
+
+<% end %>

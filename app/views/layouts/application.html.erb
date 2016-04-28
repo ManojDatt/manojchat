@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bcryptuse</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <h2> Test1</h2><hr>
+
+<% if current_user %>
+Signed in as : <%= current_user.user_type %>
+<%= link_to "LogOut",session_path(session[:user_id]), method:"delete" %>
+<%= button_to"Create new Post",new_post_path,method: :get%>
+<% else %>
+<%= link_to "Login", new_session_path %> | 
+<%= link_to "SignUp",new_user_path %>
+
+
+<% end %>
+                   
+<center>         
+<%= yield %>
+      <%= notice%>
+       </center>
+<br>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<h4>Comments</h4>
+<br>
+<h3><%= @post.title%></h3>
+<%= @post.discription%>
+<% @post.comments.each do |comment|%>
+       <ul>
+		<li>
+		<%=comment.content%>
+		</li>
+		</ul>
+		
+		<%end%>
+
+		<br>
+		<%= form_for @post ,:url=>postcomment_post_path,method: :post do |f|%>
+		<%=f.text_area :content,rows:6,cols:50%>
+		<%=f.submit"Post Comment"%>
+		<%end%>
+		<%=link_to"Go Back",posts_path%>
+		
